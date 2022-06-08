@@ -1,13 +1,9 @@
 import React from "react";
-import AddTask from "./components/AddTask/AddTask";
-import Task from "./components/Task/Task";
+import TaskApp from "./components/TaskApp";
 function App() {
-  return <div>{/* Code Here */
-  <>
-  <AddTask></AddTask>
-  <Task></Task>
-  </>
-  }</div>;
+  return <div>{/* Code Here */}
+  <TaskApp></TaskApp>
+  </div>;
 }
 
 export default App;

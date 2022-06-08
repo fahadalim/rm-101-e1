@@ -1,18 +1,17 @@
-import React from "react";
-import styles from "./tasks.module.css";
 
-const Tasks = () => {
+import React from "react";
+import styles from "./task.module.css";
+
+const Task = () => {
   // NOTE: do not delete `data-testid` key value pair
   return (
-    <>
-      <ul data-testid="tasks" className={styles.tasks}>
-        {/* Task List */}
-      </ul>
-      <div data-testid="tasks-empty" className={styles.empty}>
-        {/* Show when No Tasks are present */}
-      </div>
-    </>
+    <li data-testid="task" className={styles.task}>
+      <input type="checkbox" data-testid="task-checkbox" />
+      <div data-testid="task-text"></div>
+      {/* Counter here */}
+      <button data-testid="task-remove-button"></button>
+    </li>
   );
 };
 
-export default Tasks;
+export default Task;
