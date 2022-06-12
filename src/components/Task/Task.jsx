@@ -1,25 +1,36 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import {Counter} from "../Counter"
 import styles from "./task.module.css";
 
-const Task = () => {
+const Task = ({task, handleFunction}) => {
   // NOTE: do not delete `data-testid` key value pair
-  const [data,setData] = useState([])
-  useEffect(()=>{
-    axios.get("http://localhost:8000/data").then(({data})=>{
-      setData(data.data)
+
+  function toggleStatus(){
+    handleFunction({
+      ...task,
+      done: !task.done
     })
-  },[])
+  }
+
+  const handleCount = (el)=>{
+    // if(el>0){
+      handleFunction({
+        ...task,
+        count:el
+      });
+    // }
+  }
+
+  const handleDelete =(data)=>{
+     
+  }
   return (
     <li data-testid="task" className={styles.task}>
-      {data.map((d)=>(
-        <>
-      <input type="checkbox" data-testid="task-checkbox" />
-      <div data-testid="task-text">{d.text}</div>
+      <input type="checkbox" data-testid="task-checkbox" onChange={toggleStatus} checked = {task.done}/>
+      <div data-testid="task-text">{task.text}</div>
       {/* Counter here */}
-      <button data-testid="task-remove-button"></button>
-      </>
-      ))}
+      <Counter counter ={task.count} handleCountTodo={handleCount}></Counter>
+      <button data-testid="task-remove-button" onClick={()=>handleDelete}>Delete</button>
     </li>
   );
 };
