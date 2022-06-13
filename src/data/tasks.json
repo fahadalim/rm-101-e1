@@ -20,7 +20,7 @@
   {
     "id": 4,
     "text": "Sprint",
-    "done": false,
+    "done": true,
     "count": 5
   },
   {

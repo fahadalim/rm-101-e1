@@ -1,8 +1,7 @@
-
 import React from "react";
 import styles from "./taskHeader.module.css";
 
-const TaskHeader = ({tasks}) => {
+const TaskHeader = ({ tasks }) => {
   // sample values to be replaced
   let totalTask = tasks.length;
   let unCompletedTask = tasks.filter((el) => !el.done).length;
